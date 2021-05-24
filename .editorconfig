@@ -1,0 +1,14 @@
+# http://editorconfig.org
+root = true # 表明是最顶层的配置文件，发现设为true时，才会停止查找.editorconfig文件。
+
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 2
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.md]
+insert_final_newline = false
+trim_trailing_whitespace = false

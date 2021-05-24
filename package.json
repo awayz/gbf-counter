@@ -1,0 +1,53 @@
+{
+  "name": "gbf-counter",
+  "version": "0.0.1",
+  "description": "GBF counter",
+  "productName": "gbf-counter",
+  "author": "awayz",
+  "private": true,
+  "scripts": {
+    "lint": "eslint --ext .js,.ts,.vue ./",
+    "test": "echo \"No test specified\" && exit 0"
+  },
+  "dependencies": {
+    "@quasar/extras": "^1.10.4",
+    "axios": "^0.21.1",
+    "core-js": "^3.6.5",
+    "electron-json-storage": "^4.5.0",
+    "quasar": "^2.0.0-beta.17",
+    "vue-digit-animation": "^0.2.1",
+    "vue-i18n": "^9.0.0-beta.0"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.13.14",
+    "@quasar/app": "^3.0.0-beta.25",
+    "@types/node": "^10.17.15",
+    "@typescript-eslint/eslint-plugin": "^4.16.1",
+    "@typescript-eslint/parser": "^4.16.1",
+    "electron": "^12.0.8",
+    "electron-builder": "^22.4.0",
+    "eslint": "^7.14.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-vue": "^7.0.0",
+    "prettier": "^2.3.0"
+  },
+  "browserslist": [
+    "last 10 Chrome versions",
+    "last 10 Firefox versions",
+    "last 4 Edge versions",
+    "last 7 Safari versions",
+    "last 8 Android versions",
+    "last 8 ChromeAndroid versions",
+    "last 8 FirefoxAndroid versions",
+    "last 10 iOS versions",
+    "last 5 Opera versions"
+  ],
+  "engines": {
+    "node": ">= 12.22.1",
+    "npm": ">= 6.13.4",
+    "yarn": ">= 1.21.1"
+  }
+}
