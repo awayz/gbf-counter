@@ -47,6 +47,7 @@ function createWindow() {
     useContentSize: true,
     alwaysOnTop: true,
     resizable: false,
+    icon: path.resolve(__dirname, 'statics/icon.ico'),
     frame: false,
     webPreferences: {
       contextIsolation: true,
