@@ -1,5 +1,9 @@
 import { app, BrowserWindow, nativeTheme, ipcMain } from 'electron';
+import { defaultGbfData, defaultDetailData, GBF_JSON_KEY, DETAIL_JSON_KEY } from './data/constants.js';
+import { existKey, getByKey, getByKeyOrDefault } from './utils/dbUtil.js';
+import { removeClosest, findByRaidId } from './utils/gbfUtil.js';
 
+const dayjs = require('dayjs');
 const fs = require('fs');
 const path = require('path');
 
@@ -12,27 +16,6 @@ try {
 const storage = require('electron-json-storage');
 const STORE_PATH = app.getPath('userData');
 storage.setDataPath(STORE_PATH);
-const defaultGbfData = {
-  "proto_bahamut": {
-    "ffj": 0,
-    "red_ring": 0,
-    "black_ring": 0,
-    "white_ring": 0
-  },
-  "akasha": {
-    "ffj": 0,
-    "red_ring": 0,
-    "black_ring": 0,
-    "white_ring": 0,
-    "silver_centrum":0,
-    "red_paper": 0,
-    "black_paper": 0,
-    "white_paper": 0,
-    "hollow_key": 0,
-    "mirage_munition": 0
-  }
-};
-
 
 let mainWindow;
 
@@ -51,8 +34,6 @@ function createWindow() {
     frame: false,
     webPreferences: {
       contextIsolation: true,
-      // More info: /quasar-cli/developing-electron-apps/electron-preload-script
-      // preload: path.resolve(__dirname, process.env.QUASAR_ELECTRON_PRELOAD),
       preload: path.resolve(__dirname, 'electron-preload.js'),
     },
   });
@@ -115,37 +96,72 @@ ipcMain.on('end-count', () => {
   mainWindow.setResizable(false);
 });
 
-ipcMain.handle('statistics', (_, raidId) => {
-  return new Promise((resolve, reject) => {
-    storage.has('gbf', function(error, hasKey){
-      if (error) {
-        reject (error);
-      }
-      if (hasKey) {
-        storage.get('gbf', function(error, data) {
-          if (error) {
-            reject(error);
-          }
-          resolve(data[raidId]);
-        });
-      } else {
-        storage.set('gbf', defaultGbfData);
-        resolve(defaultGbfData[raidId]);
-      }
-    });
-  });
+ipcMain.handle('count', async (_, raidId) => {
+  try {
+    let data = await getByKeyOrDefault(storage, GBF_JSON_KEY, defaultGbfData);
+    return data[raidId];
+  } catch(e) {
+    console.log(e);
+  }
 });
 
-ipcMain.handle('save',  (_, { raidId, itemId, num }) => {
-  return new Promise((resolve, reject) => {
-    storage.get('gbf', function(error, data) {
-      if (error) reject(error);
-      else {
-        data[raidId][itemId] = num;
+ipcMain.handle('save', async (_, { raidId, itemId, num }) => {
+  try {
+    let data = await getByKeyOrDefault(storage, GBF_JSON_KEY, defaultGbfData);
+    data[raidId][itemId] = num;
+    storage.set(GBF_JSON_KEY, data);
+    return true;
+  } catch(e) {
+    console.log(e);
+  }
+});
 
-        storage.set('gbf', data);
-        resolve(true);
-      }
+ipcMain.handle('increment', async (_, { raidId, itemId, itemName }) => {
+  try {
+    let data = await getByKeyOrDefault(storage, DETAIL_JSON_KEY, defaultDetailData);
+    let now = dayjs().toISOString();
+    data.record.push({
+      raidId: raidId,
+      itemId: itemId,
+      itemName, itemName,
+      num: 1,
+      damage: -1,
+      duration: -1,
+      time: now
     });
-  });
+    storage.set(DETAIL_JSON_KEY, data);
+    return true;
+  } catch(e) {
+    console.log(e);
+  }
+});
+
+ipcMain.handle('decrement', async (_, { raidId, itemId } ) => {
+  try {
+    let data = await getByKeyOrDefault(storage, DETAIL_JSON_KEY, defaultDetailData);
+    let newRecord = removeClosest(data.record, raidId, itemId);
+    data.record = newRecord;
+    storage.set(DETAIL_JSON_KEY, data);
+  } catch(e) {
+    console.log(e);
+  }
+});
+
+ipcMain.handle('listByRaidId', async (_, raidId) => {
+  try {
+    let data = await getByKeyOrDefault(storage, DETAIL_JSON_KEY, defaultDetailData);
+    let dataByRaid = findByRaidId(data.record, raidId);
+    return dataByRaid;
+  } catch(e) {
+    console.log(e);
+  }
+});
+
+ipcMain.handle('list', async (_, __) => {
+  try {
+    let data = await getByKeyOrDefault(storage, DETAIL_JSON_KEY, defaultDetailData);
+    return data.record;
+  } catch(e) {
+    console.log(e);
+  }
 });

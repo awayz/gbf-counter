@@ -9,6 +9,7 @@
           :img="drop.imgPath"
           :itemId="drop.id"
           :itemCount="itemCount[drop.id]"
+          :itemName="drop.name"
           :raidId="raidId"
           @save="saveCount"
         ></drop-item-card>
@@ -47,7 +48,7 @@ export default defineComponent({
 
     const itemCount = reactive<Record<string, number>>({});
     onMounted(async () => {
-      const t = (await (window as any).api.statistics(raidId)) as Record<string, number>;
+      const t = (await (window as any).api.count(raidId)) as Record<string, number>;
       Object.assign(itemCount, t);
     });
 

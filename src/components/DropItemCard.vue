@@ -45,6 +45,10 @@ export default defineComponent({
       required: true,
       default: 0,
     },
+    itemName: {
+      type: String,
+      required: true,
+    },
     raidId: {
       type: String,
       required: true,
@@ -67,6 +71,7 @@ export default defineComponent({
     async add() {
       this.count += 1;
       await (window as any).api.save({ raidId: this.raidId, itemId: this.itemId, num: this.count });
+      await (window as any).api.increment({ raidId: this.raidId, itemId: this.itemId, itemName: this.itemName });
       this.$emit('save', { itemId: this.itemId, num: this.count });
     },
     async subtract() {
@@ -75,6 +80,7 @@ export default defineComponent({
       }
       this.count -= 1;
       await (window as any).api.save({ raidId: this.raidId, itemId: this.itemId, num: this.count });
+      await (window as any).api.decrement({ raidId: this.raidId, itemId: this.itemId });
       this.$emit('save', { itemId: this.itemId, num: this.count });
     },
   },

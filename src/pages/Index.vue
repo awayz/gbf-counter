@@ -19,21 +19,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import RaidCard from 'src/components/RaidCard.vue';
-
-const raidList = [
-  {
-    id: 'proto_bahamut',
-    name: '大巴',
-    img_path: 'statics/proto_bahamut.png',
-    route: '/counter/proto_bahamut',
-  },
-  {
-    id: 'akasha',
-    name: '阿卡夏',
-    img_path: 'statics/akasha.png',
-    route: '/counter/akasha',
-  },
-];
+import { RaidList } from 'src/constants/drop';
 
 export default defineComponent({
   name: 'PageIndex',
@@ -43,7 +29,7 @@ export default defineComponent({
 
   setup() {
     return {
-      raids: raidList,
+      raids: RaidList,
     };
   },
 });
