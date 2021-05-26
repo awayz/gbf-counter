@@ -27,6 +27,9 @@ contextBridge.exposeInMainWorld('api', {
   count: async (raidId) => {
     return await ipcRenderer.invoke('count', raidId);
   },
+  countAll: async () => {
+    return await ipcRenderer.invoke('countAll');
+  },
   save: async ({ raidId, itemId, num }) => {
     return await ipcRenderer.invoke('save', { raidId, itemId, num });
   },

@@ -36,14 +36,6 @@ module.exports = configure((ctx) => ({
 
   // https://github.com/quasarframework/quasar/tree/dev/extras
   extras: [
-    // 'ionicons-v4',
-    // 'mdi-v5',
-    // 'fontawesome-v5',
-    // 'eva-icons',
-    // 'themify',
-    // 'line-awesome',
-    // 'roboto-font-latin-ext', // this or either 'roboto-font', NEVER both!
-
     'roboto-font', // optional, you are not bound to it
     'material-icons', // optional, you are not bound to it
   ],
@@ -61,8 +53,8 @@ module.exports = configure((ctx) => ({
 
     // rtl: true, // https://v2.quasar.dev/options/rtl-support
     // preloadChunks: true,
-    // showProgress: false,
-    // gzip: true,
+    showProgress: false,
+    gzip: true,
     // analyze: true,
 
     // Options below are automatically set depending on the env, set them if you want to override

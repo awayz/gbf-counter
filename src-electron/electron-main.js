@@ -105,6 +105,15 @@ ipcMain.handle('count', async (_, raidId) => {
   }
 });
 
+ipcMain.handle('countAll', async (_, raidId) => {
+  try {
+    let data = await getByKeyOrDefault(storage, GBF_JSON_KEY, defaultGbfData);
+    return data[raidId];
+  } catch(e) {
+    console.log(e);
+  }
+});
+
 ipcMain.handle('save', async (_, { raidId, itemId, num }) => {
   try {
     let data = await getByKeyOrDefault(storage, GBF_JSON_KEY, defaultGbfData);

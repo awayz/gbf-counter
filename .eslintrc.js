@@ -89,6 +89,8 @@ module.exports = {
     'no-underscore-dangle': 'off',
     'no-empty': 'off',
     'no-console': 'off',
+    'no-restricted-syntax': 'off',
+    'no-unused-vars': 'off',
 
     // TypeScript
     quotes: ['warn', 'single', { avoidEscape: true }],
@@ -98,6 +100,7 @@ module.exports = {
     "@typescript-eslint/no-unsafe-call": 'off',
     "@typescript-eslint/no-unsafe-member-access": 'off',
     "@typescript-eslint/no-explicit-any": 'off',
+    "@typescript-eslint/no-unused-vars": 'off',
 
     // allow debugger during development only
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
