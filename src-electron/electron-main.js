@@ -1,6 +1,6 @@
 import { app, BrowserWindow, nativeTheme, ipcMain } from 'electron';
 import { defaultGbfData, defaultDetailData, GBF_JSON_KEY, DETAIL_JSON_KEY } from './data/constants.js';
-import { existKey, getByKey, getByKeyOrDefault } from './utils/dbUtil.js';
+import { getByKeyOrDefault } from './utils/dbUtil.js';
 import { removeClosest, findByRaidId } from './utils/gbfUtil.js';
 
 const dayjs = require('dayjs');
@@ -105,10 +105,10 @@ ipcMain.handle('count', async (_, raidId) => {
   }
 });
 
-ipcMain.handle('countAll', async (_, raidId) => {
+ipcMain.handle('countAll', async (_, __) => {
   try {
     let data = await getByKeyOrDefault(storage, GBF_JSON_KEY, defaultGbfData);
-    return data[raidId];
+    return data;
   } catch(e) {
     console.log(e);
   }

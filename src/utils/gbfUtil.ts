@@ -10,7 +10,9 @@ export interface DropInfo {
 
 // 所有 raid 的掉落情况（分开记录）
 export async function countAll(): Promise<DropInfo> {
-  return (await (window as any).api.countAll()) as DropInfo;
+  const data = (await (window as any).api.countAll()) as DropInfo;
+
+  return data;
 }
 
 // 单个 raid 的掉落情况

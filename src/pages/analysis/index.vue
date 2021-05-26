@@ -154,7 +154,7 @@ export default defineComponent({
   min-width: 350px;
   max-width: 350px;
   .description {
-    height: 130px;
+    height: 90px;
     .num {
       font-size: 24px;
       margin: 0 5px 0 5px;
