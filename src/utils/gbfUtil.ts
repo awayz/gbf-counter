@@ -1,39 +1,118 @@
-// 单个 raid 的掉落情况
-export interface RaidDropCount {
+import dayjs from 'dayjs';
+
+/* 物品掉落情况
+ * { itemName1: count1, itemName2: count2 }
+ */
+export interface ItemCount {
   [index: string]: number;
 }
 
-// 所有 raid 的掉落情况
-export interface DropInfo {
-  [index: string]: RaidDropCount;
+/* 所有 raid 的掉落情况
+ * { raidName1 : { itemName1: count1, itemName2: count2 }, raidName2: { xxx }}
+ */
+export interface AllRaidsItemCount {
+  [index: string]: ItemCount;
 }
 
-// 所有 raid 的掉落情况（分开记录）
-export async function countAll(): Promise<DropInfo> {
-  const data = (await (window as any).api.countAll()) as DropInfo;
+export interface RaidDetail {
+  raidId: string;
+  itemId: string;
+  itemName: string;
+  num: number;
+  damage: number;
+  duration: number;
+  time: string;
+}
 
+export interface DropInfoDTO {
+  totalItemCount: ItemCount;
+  blueTreasureCount: number;
+  akashaTreasureCount: number;
+  protoBahamutTreasureCount: number;
+  ffjCount: number;
+}
+
+// 所有 raid 的掉落情况（按 raidId 分开记录）
+export async function countAll(): Promise<AllRaidsItemCount> {
+  const data = (await (window as any).api.countAll()) as AllRaidsItemCount;
   return data;
 }
 
 // 单个 raid 的掉落情况
-export async function count(raidId: string): Promise<RaidDropCount> {
-  return (await (window as any).api.count(raidId)) as RaidDropCount;
+export async function count(raidId: string): Promise<ItemCount> {
+  return (await (window as any).api.count(raidId)) as ItemCount;
 }
 
-export function sumDropInfo(dropInfo: DropInfo): RaidDropCount {
-  const result: RaidDropCount = {};
-  if (!dropInfo) {
-    return result;
+// 所有 raid 的掉落情况（按物品 sum）
+export function getDropInfo(allRaidsItemCount: AllRaidsItemCount): DropInfoDTO {
+  if (!allRaidsItemCount) {
+    return {
+      totalItemCount: {},
+      blueTreasureCount: 0,
+      akashaTreasureCount: 0,
+      protoBahamutTreasureCount: 0,
+      ffjCount: 0,
+    };
   }
+
+  const totalItemCount: ItemCount = {};
+  let blueTreasure = 0;
+  let akasha = 0;
+  let protoBahamut = 0;
+  let ffjCount = 0;
+  const AKASHA = 'akasha';
+  const PROTOBAHAMUT = 'proto_bahamut';
+  const FFJ = 'ffj';
+
   // eslint-disable-next-line no-unused-vars
-  for (const [_, dropCount] of Object.entries(dropInfo)) {
-    for (const [item, c] of Object.entries(dropCount)) {
-      if (Object.prototype.hasOwnProperty.call(result, item)) {
-        result[item] += c;
+  for (const [raidId, raidItemCount] of Object.entries(allRaidsItemCount)) {
+    for (const [item, c] of Object.entries(raidItemCount)) {
+      if (Object.prototype.hasOwnProperty.call(totalItemCount, item)) {
+        totalItemCount[item] += c;
       } else {
-        result[item] = c;
+        totalItemCount[item] = c;
+      }
+
+      blueTreasure += c;
+      if (raidId === AKASHA) {
+        akasha += c;
+      } else if (raidId === PROTOBAHAMUT) {
+        protoBahamut += c;
+      }
+      if (item === FFJ) {
+        ffjCount += c;
       }
     }
   }
+  const result = {
+    totalItemCount,
+    blueTreasureCount: blueTreasure,
+    akashaTreasureCount: akasha,
+    protoBahamutTreasureCount: protoBahamut,
+    ffjCount,
+  };
   return result;
+}
+
+// 所有 raid 的掉落详情
+export async function listDetails(): Promise<RaidDetail[]> {
+  const data = (await (window as any).api.list()) as RaidDetail[];
+  console.log('detail data: ', data);
+  return data;
+}
+
+// 计算 detail 记录里有多少不同的日期
+export function countRaidDays(details: RaidDetail[]): number {
+  const daySet = new Set();
+
+  for (let i = 0; i < details.length; i += 1) {
+    const d = details[i];
+    if (d && d.time) {
+      const t = d.time;
+      const date = dayjs(t).format('DD/MM/YYYY');
+      console.log('data in count raid', date);
+      daySet.add(date);
+    }
+  }
+  return daySet.size;
 }

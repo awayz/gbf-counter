@@ -1,9 +1,8 @@
 <template>
-  <q-page>
+  <q-page class="home-container">
     <div class="q-pa-md">
-      <div class="row justify-evenly">
+      <div class="row justify-end q-gutter-lg raid-card-row">
         <raid-card
-          class="col-4"
           v-for="(raid, index) in raids"
           :key="index"
           :img="raid.img_path"
@@ -35,4 +34,20 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.home-container::before {
+  content: '';
+  background: url('~assets/home-background.jpg') center center no-repeat;
+  background-size: cover;
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.raid-card-row {
+  margin-top: 50px;
+  padding: 0 20px 0 0;
+}
+</style>

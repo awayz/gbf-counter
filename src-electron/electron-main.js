@@ -18,14 +18,13 @@ const STORE_PATH = app.getPath('userData');
 storage.setDataPath(STORE_PATH);
 
 let mainWindow;
+let mainWidth = 900;
+let mainHeight = 550;
 
 function createWindow() {
-  /**
-   * Initial window options
-   */
   mainWindow = new BrowserWindow({
-    width: 800,
-    height: 450,
+    width: mainWidth,
+    height: mainHeight,
     titleBarStyle: 'hidden',
     useContentSize: true,
     alwaysOnTop: true,
@@ -92,7 +91,7 @@ ipcMain.on('end-count', () => {
   if (mainWindow.isMaximized()) {
     mainWindow.restore();
   }
-  mainWindow.setSize(800, 450);
+  mainWindow.setSize(mainWidth, mainHeight);
   mainWindow.setResizable(false);
 });
 

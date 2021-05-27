@@ -1,12 +1,11 @@
 <template>
-  <q-card class="my-card">
+  <q-card class="my-card shadow-10">
     <q-img :src="img" class="battle-target-img">
       <div class="text-h5 absolute-bottom text-right">{{ name }}</div>
     </q-img>
     <q-separator />
     <q-card-actions align="right">
       <q-btn color="primary" class="start-btn" @click="handleStart">开始</q-btn>
-      <!-- <q-btn class="statistics">统计</q-btn> -->
     </q-card-actions>
   </q-card>
 </template>
@@ -50,16 +49,10 @@ export default defineComponent({
 .start-btn {
   width: 140px;
 }
-.statistics {
-  background: #ff0080;
-  color: white;
-  width: 80px;
-}
 .my-card {
-  min-width: 300px;
-  max-width: 350px;
-  margin: 20px 0 20px 0;
+  width: 260px;
 }
+
 .battle-target-img {
   height: 250px;
 }
