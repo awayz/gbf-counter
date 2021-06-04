@@ -79,7 +79,13 @@
               <div class="row">
                 <div class="col text-h6">每日猎金次数</div>
                 <div class="col-2">
-                  <q-select outlined dense v-model="selectedYear" :options="yearsToSelect">
+                  <q-select
+                    outlined
+                    dense
+                    v-model="selectedYear"
+                    :options="yearsToSelect"
+                    @update:model-value="loadYearRaidCount"
+                  >
                     <template v-slot:before>
                       <q-icon name="event" color="primary" />
                     </template>
@@ -146,6 +152,9 @@ echarts.use([
 const ALL_RAIDS = 'all';
 
 const updateSummaryPie = (data: ItemCount) => {
+  const summary: HTMLDivElement = document.getElementById('summary-pie') as HTMLDivElement;
+  summary.removeAttribute('_echarts_instance_');
+  const summaryPieChart = echarts.init(summary);
   const d = [];
   for (const [item, cnt] of Object.entries(data)) {
     const { name } = DropItems[item];
@@ -154,8 +163,6 @@ const updateSummaryPie = (data: ItemCount) => {
       name,
     });
   }
-  const summary: HTMLDivElement = document.getElementById('summary-pie') as HTMLDivElement;
-  const summaryPieChart = echarts.init(summary);
   // 通过 ComposeOption 来组合出一个只有必须组件和图表的 Option 类型
   type SummaryPieChartOption = echarts.ComposeOption<
     PieSeriesOption | TitleComponentOption | LegendComponentOption | GridComponentOption | TooltipComponentOption
@@ -226,7 +233,9 @@ function getYearData(year: string, raidDetails: RaidDetail[]) {
 
 const updateDailyCheckIn = (year: string, raidDetails: RaidDetail[]) => {
   const checkIn: HTMLDivElement = document.getElementById('daily-check-in') as HTMLDivElement;
+  checkIn.removeAttribute('_echarts_instance_');
   const checkInChart = echarts.init(checkIn);
+  console.log('checkInChart');
   type CheckInChartOption = echarts.ComposeOption<
     | HeatmapSeriesOption
     | VisualMapComponentOption
@@ -281,6 +290,7 @@ const updateDailyCheckIn = (year: string, raidDetails: RaidDetail[]) => {
 export default defineComponent({
   name: 'Analysis',
   setup() {
+    let summaryPieChart: any;
     const blueTreasureCount = ref(0);
     const akashaCount = ref(0);
     const protoBahamutCount = ref(0);
@@ -299,6 +309,7 @@ export default defineComponent({
 
     const raidDayCount = ref(0);
     const currentYear = `${new Date().getFullYear()}`;
+    const selectedYear = ref(currentYear);
     const yearsToSelect = ref(['2021', '2022', '2023']);
     onMounted(async () => {
       const raidDetails = await listDetails();
@@ -340,11 +351,11 @@ export default defineComponent({
         }
         updateSummaryPie(data);
       },
-      selectedYear: ref(currentYear),
+      selectedYear,
       yearsToSelect,
-      loadYearRaidCount: async (year: string) => {
+      loadYearRaidCount: async () => {
         const data = await listDetails();
-        updateDailyCheckIn(year, data);
+        updateDailyCheckIn(selectedYear.value, data);
       },
     };
   },
@@ -395,7 +406,7 @@ export default defineComponent({
 
 .drop-count {
   #summary-pie {
-    height: 380px;
+    height: 420px;
   }
 }
 

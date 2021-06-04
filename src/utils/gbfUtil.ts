@@ -101,7 +101,7 @@ export function getDropInfo(allRaidsItemCount: AllRaidsItemCount): DropInfoDTO {
 // 所有 raid 的掉落详情
 export async function listDetails(): Promise<RaidDetail[]> {
   const data = (await (window as any).api.list()) as RaidDetail[];
-  console.log('detail data: ', data);
+  // console.log('detail data: ', data);
   return data;
 }
 
