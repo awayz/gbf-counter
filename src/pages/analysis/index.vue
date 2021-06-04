@@ -53,7 +53,7 @@
           <q-card class="drop-count">
             <q-card-section>
               <div class="row">
-                <span class="col-2 text-h6">掉落分布</span>
+                <div class="col-2 text-h6">掉落分布</div>
                 <q-space />
                 <div class="col-4">
                   <q-tabs v-model="selectedRaidTab" inline-label shrink stretch align="justify" class="bg-grey-1">
@@ -76,7 +76,16 @@
         <div style="margin-top: 20px">
           <q-card class="check-in">
             <q-card-section>
-              <span class="text-h6">每日记录</span>
+              <div class="row">
+                <div class="col text-h6">每日猎金次数</div>
+                <div class="col-2">
+                  <q-select outlined dense v-model="selectedYear" :options="yearsToSelect">
+                    <template v-slot:before>
+                      <q-icon name="event" color="primary" />
+                    </template>
+                  </q-select>
+                </div>
+              </div>
             </q-card-section>
             <q-card-section>
               <div id="daily-check-in"></div>
@@ -97,11 +106,14 @@ import {
   listDetails,
   DropInfoDTO,
   count,
+  yearRaidCountGroupByDay,
+  YearRaidCount,
+  RaidDetail,
 } from 'src/utils/gbfUtil';
 import { DropItems, RaidList } from 'src/constants/drop';
 import { defineComponent, onMounted, ref } from 'vue';
 import * as echarts from 'echarts/core';
-import { PieChart, PieSeriesOption } from 'echarts/charts';
+import { PieChart, PieSeriesOption, HeatmapChart, HeatmapSeriesOption } from 'echarts/charts';
 import {
   TitleComponent,
   TitleComponentOption,
@@ -111,11 +123,25 @@ import {
   LegendComponentOption,
   GridComponent,
   GridComponentOption,
+  VisualMapComponent,
+  VisualMapComponentOption,
+  CalendarComponent,
+  CalendarComponentOption,
 } from 'echarts/components';
 import { CanvasRenderer } from 'echarts/renderers';
 
 // 注册必须的组件
-echarts.use([TitleComponent, LegendComponent, TooltipComponent, GridComponent, PieChart, CanvasRenderer]);
+echarts.use([
+  TitleComponent,
+  LegendComponent,
+  TooltipComponent,
+  GridComponent,
+  PieChart,
+  CanvasRenderer,
+  HeatmapChart,
+  VisualMapComponent,
+  CalendarComponent,
+]);
 
 const ALL_RAIDS = 'all';
 
@@ -157,6 +183,7 @@ const updateSummaryPie = (data: ItemCount) => {
         label: {
           show: true,
           position: 'outer',
+          formatter: '{b} {c} ({d}%)',
         },
         labelLine: {
           show: true,
@@ -179,8 +206,76 @@ const updateSummaryPie = (data: ItemCount) => {
   summaryPieChart.setOption(summaryPieChartOption);
 };
 
-const updateDailyCheckIn = (data: any) => {
-  const summary: HTMLDivElement = document.getElementById('summary-pie') as HTMLDivElement;
+function getYearData(year: string, raidDetails: RaidDetail[]) {
+  const raidCount: YearRaidCount = yearRaidCountGroupByDay(year, raidDetails);
+  const date = +echarts.time.parse(`${year}-01-01`);
+  const end = +echarts.time.parse(`${+year + 1}-01-01`);
+  const dayTime = 3600 * 24 * 1000;
+  const data = [];
+  for (let time = date; time < end; time += dayTime) {
+    const d = echarts.time.format(time, '{yyyy}-{MM}-{dd}', false);
+    if (Object.prototype.hasOwnProperty.call(raidCount, d)) {
+      data.push([d, raidCount[d]]);
+    } else {
+      data.push([d, 0]);
+    }
+  }
+  // console.log(data);
+  return data;
+}
+
+const updateDailyCheckIn = (year: string, raidDetails: RaidDetail[]) => {
+  const checkIn: HTMLDivElement = document.getElementById('daily-check-in') as HTMLDivElement;
+  const checkInChart = echarts.init(checkIn);
+  type CheckInChartOption = echarts.ComposeOption<
+    | HeatmapSeriesOption
+    | VisualMapComponentOption
+    | GridComponentOption
+    | CalendarComponentOption
+    | TooltipComponentOption
+  >;
+  const checkInChartOption: CheckInChartOption = {
+    tooltip: {
+      formatter: '{c0}次',
+    },
+    visualMap: {
+      type: 'piecewise',
+      orient: 'horizontal',
+      left: 'center',
+      top: 0,
+      inRange: {
+        color: ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'],
+      },
+      pieces: [{ gte: 0, lt: 5 }, { gte: 5, lt: 10 }, { gte: 10, lt: 15 }, { gte: 15, lt: 20 }, { gte: 20 }],
+    },
+    calendar: {
+      top: 50,
+      left: 30,
+      right: 30,
+      cellSize: ['auto', 14],
+      range: year,
+      itemStyle: {
+        borderWidth: 2,
+        borderColor: '#ffffff',
+      },
+      yearLabel: { show: false },
+      dayLabel: {
+        nameMap: 'cn',
+      },
+      monthLabel: {
+        nameMap: 'cn',
+      },
+      splitLine: {
+        show: false,
+      },
+    },
+    series: {
+      type: 'heatmap',
+      coordinateSystem: 'calendar',
+      data: getYearData(year, raidDetails),
+    },
+  };
+  checkInChart.setOption(checkInChartOption);
 };
 
 export default defineComponent({
@@ -203,9 +298,12 @@ export default defineComponent({
     });
 
     const raidDayCount = ref(0);
+    const currentYear = `${new Date().getFullYear()}`;
+    const yearsToSelect = ref(['2021', '2022', '2023']);
     onMounted(async () => {
       const raidDetails = await listDetails();
       raidDayCount.value = countRaidDays(raidDetails);
+      updateDailyCheckIn(currentYear, raidDetails);
     });
 
     const raidTabs = ref([
@@ -241,6 +339,12 @@ export default defineComponent({
           data = await count(id);
         }
         updateSummaryPie(data);
+      },
+      selectedYear: ref(currentYear),
+      yearsToSelect,
+      loadYearRaidCount: async (year: string) => {
+        const data = await listDetails();
+        updateDailyCheckIn(year, data);
       },
     };
   },
@@ -323,6 +427,11 @@ export default defineComponent({
   }
 }
 
+.check-in {
+  #daily-check-in {
+    height: 200px;
+  }
+}
 .page-scroll {
   height: 501px;
   width: 100%;

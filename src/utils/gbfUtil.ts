@@ -32,6 +32,10 @@ export interface DropInfoDTO {
   ffjCount: number;
 }
 
+export interface YearRaidCount {
+  [index: string]: number;
+}
+
 // 所有 raid 的掉落情况（按 raidId 分开记录）
 export async function countAll(): Promise<AllRaidsItemCount> {
   const data = (await (window as any).api.countAll()) as AllRaidsItemCount;
@@ -110,9 +114,32 @@ export function countRaidDays(details: RaidDetail[]): number {
     if (d && d.time) {
       const t = d.time;
       const date = dayjs(t).format('DD/MM/YYYY');
-      console.log('data in count raid', date);
+      // console.log('data in count raid', date);
       daySet.add(date);
     }
   }
   return daySet.size;
+}
+
+// 每年每天打了几次
+export function yearRaidCountGroupByDay(year: string, details: RaidDetail[]): YearRaidCount {
+  const yearRaidCount: YearRaidCount = {};
+  for (let i = 0; i < details.length; i += 1) {
+    const d = details[i];
+    if (d && d.time) {
+      const t = d.time;
+      const date = dayjs(t);
+      const y = date.get('year');
+      if (y !== +year) {
+        continue;
+      }
+      const dateStr = date.format('YYYY-MM-DD');
+      if (Object.prototype.hasOwnProperty.call(yearRaidCount, dateStr)) {
+        yearRaidCount[dateStr] += 1;
+      } else {
+        yearRaidCount[dateStr] = 1;
+      }
+    }
+  }
+  return yearRaidCount;
 }

@@ -91,6 +91,7 @@ module.exports = {
     'no-console': 'off',
     'no-restricted-syntax': 'off',
     'no-unused-vars': 'off',
+    'no-continue': 0,
 
     // TypeScript
     quotes: ['warn', 'single', { avoidEscape: true }],
