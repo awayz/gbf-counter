@@ -1099,10 +1099,10 @@
   resolved "https://registry.npm.taobao.org/@positron/stack-trace/download/@positron/stack-trace-1.0.0.tgz#14fcc712a530038ef9be1ce6952315a839f466a8"
   integrity sha1-FPzHEqUwA475vhzmlSMVqDn0Zqg=
 
-"@quasar/app@^3.0.0-beta.25":
-  version "3.0.0-beta.25"
-  resolved "https://registry.nlark.com/@quasar/app/download/@quasar/app-3.0.0-beta.25.tgz#c532796f6ddf7a28947ee3b6bf00efad63121dac"
-  integrity sha1-xTJ5b23feiiUfuO2vwDvrWMSHaw=
+"@quasar/app@^3.0.0-beta.28":
+  version "3.0.0-beta.28"
+  resolved "https://registry.nlark.com/@quasar/app/download/@quasar/app-3.0.0-beta.28.tgz#a1ab4f0b676813e251a4880c355c1ac7b63d8948"
+  integrity sha1-oatPC2doE+JRpIgMNVwax7Y9iUg=
   dependencies:
     "@quasar/babel-preset-app" "2.0.1"
     "@quasar/fastclick" "1.1.4"
@@ -1121,12 +1121,12 @@
     chalk "4.1.1"
     chokidar "3.5.1"
     ci-info "3.1.1"
-    compression-webpack-plugin "7.1.2"
-    copy-webpack-plugin "8.1.1"
+    compression-webpack-plugin "8.0.0"
+    copy-webpack-plugin "9.0.0"
     cross-spawn "7.0.3"
-    css-loader "5.2.4"
-    css-minimizer-webpack-plugin "2.0.0"
-    cssnano "5.0.2"
+    css-loader "5.2.6"
+    css-minimizer-webpack-plugin "3.0.0"
+    cssnano "5.0.4"
     dot-prop "6.0.1"
     elementtree "0.1.7"
     error-stack-parser "2.0.6"
@@ -1138,7 +1138,7 @@
     hash-sum "2.0.0"
     html-minifier "4.0.0"
     html-webpack-plugin "5.3.1"
-    inquirer "7.3.3"
+    inquirer "8.1.0"
     isbinaryfile "4.0.8"
     launch-editor-middleware "2.2.1"
     lodash.debounce "4.0.8"
@@ -1153,15 +1153,15 @@
     open "7.1.0"
     ouch "2.0.0"
     postcss "^8.2.10"
-    postcss-loader "5.2.0"
-    postcss-rtlcss "3.3.1"
+    postcss-loader "5.3.0"
+    postcss-rtlcss "3.3.4"
     pretty-error "3.0.3"
     register-service-worker "1.7.2"
     sass "1.32.12"
-    sass-loader "11.0.1"
+    sass-loader "11.1.1"
     semver "7.3.5"
-    table "6.7.0"
-    terser-webpack-plugin "5.1.1"
+    table "6.7.1"
+    terser-webpack-plugin "5.1.2"
     ts-loader "8.0.17"
     typescript "4.2.2"
     url-loader "4.1.1"
@@ -1169,9 +1169,9 @@
     vue-loader "16.2.0"
     vue-router "4.0.8"
     vue-style-loader "4.1.3"
-    vuex "4.0.0"
+    vuex "4.0.1"
     webpack "^5.35.0"
-    webpack-bundle-analyzer "4.4.1"
+    webpack-bundle-analyzer "4.4.2"
     webpack-chain "6.5.1"
     webpack-dev-server "4.0.0-beta.3"
     webpack-merge "5.7.3"
@@ -1625,6 +1625,11 @@
   version "6.0.0-beta.11"
   resolved "https://registry.nlark.com/@vue/devtools-api/download/@vue/devtools-api-6.0.0-beta.11.tgz#4fb4161ee41ba75f3f5198d4bfd80e4ffb7f2462"
   integrity sha1-T7QWHuQbp18/UZjUv9gOT/t/JGI=
+
+"@vue/devtools-api@^6.0.0-beta.11":
+  version "6.0.0-beta.12"
+  resolved "https://registry.nlark.com/@vue/devtools-api/download/@vue/devtools-api-6.0.0-beta.12.tgz?cache=0&sync_timestamp=1622268995219&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40vue%2Fdevtools-api%2Fdownload%2F%40vue%2Fdevtools-api-6.0.0-beta.12.tgz#693ffc77bfb66b080e5c9576abb5786c85470a32"
+  integrity sha1-aT/8d7+2awgOXJV2q7V4bIVHCjI=
 
 "@vue/reactivity@3.0.11":
   version "3.0.11"
@@ -2186,7 +2191,7 @@ binaryextensions@^4.15.0:
   resolved "https://registry.npm.taobao.org/binaryextensions/download/binaryextensions-4.15.0.tgz?cache=0&sync_timestamp=1604234383352&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fbinaryextensions%2Fdownload%2Fbinaryextensions-4.15.0.tgz#c63a502e0078ff1b0e9b00a9f74d3c2b0f8bd32e"
   integrity sha1-xjpQLgB4/xsOmwCp9008Kw+L0y4=
 
-bl@^4.0.3:
+bl@^4.0.3, bl@^4.1.0:
   version "4.1.0"
   resolved "https://registry.nlark.com/bl/download/bl-4.1.0.tgz#451535264182bec2fbbc83a62ab98cf11d9f7b3a"
   integrity sha1-RRU1JkGCvsL7vIOmKrmM8R2fezo=
@@ -2431,7 +2436,7 @@ caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001196, caniuse-lite@^1.0.30001219:
   resolved "https://registry.nlark.com/caniuse-lite/download/caniuse-lite-1.0.30001228.tgz#bfdc5942cd3326fa51ee0b42fbef4da9d492a7fa"
   integrity sha1-v9xZQs0zJvpR7gtC++9NqdSSp/o=
 
-chalk@4.1.1, chalk@^4.0.0, chalk@^4.1.0:
+chalk@4.1.1, chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.1:
   version "4.1.1"
   resolved "https://registry.nlark.com/chalk/download/chalk-4.1.1.tgz?cache=0&sync_timestamp=1618995355917&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fchalk%2Fdownload%2Fchalk-4.1.1.tgz#c80b3fab28bf6371e6863325eee67e618b77e6ad"
   integrity sha1-yAs/qyi/Y3HmhjMl7uZ+YYt35q0=
@@ -2512,6 +2517,11 @@ cli-cursor@^3.1.0:
   dependencies:
     restore-cursor "^3.1.0"
 
+cli-spinners@^2.5.0:
+  version "2.6.0"
+  resolved "https://registry.npm.taobao.org/cli-spinners/download/cli-spinners-2.6.0.tgz?cache=0&sync_timestamp=1616091641633&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcli-spinners%2Fdownload%2Fcli-spinners-2.6.0.tgz#36c7dc98fb6a9a76bd6238ec3f77e2425627e939"
+  integrity sha1-NsfcmPtqmna9YjjsP3fiQlYn6Tk=
+
 cli-truncate@^1.1.0:
   version "1.1.0"
   resolved "https://registry.nlark.com/cli-truncate/download/cli-truncate-1.1.0.tgz#2b2dfd83c53cfd3572b87fc4d430a808afb04086"
@@ -2549,6 +2559,11 @@ clone-response@^1.0.2:
   integrity sha1-0dyXOSAxTfZ/vrlCI7TuNQI56Ws=
   dependencies:
     mimic-response "^1.0.0"
+
+clone@^1.0.2:
+  version "1.0.4"
+  resolved "https://registry.nlark.com/clone/download/clone-1.0.4.tgz#da309cc263df15994c688ca902179ca3c7cd7c7e"
+  integrity sha1-2jCcwmPfFZlMaIypAheco8fNfH4=
 
 color-convert@^1.9.0:
   version "1.9.3"
@@ -2648,10 +2663,10 @@ compressible@~2.0.16:
   dependencies:
     mime-db ">= 1.43.0 < 2"
 
-compression-webpack-plugin@7.1.2:
-  version "7.1.2"
-  resolved "https://registry.nlark.com/compression-webpack-plugin/download/compression-webpack-plugin-7.1.2.tgz?cache=0&sync_timestamp=1621607041613&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fcompression-webpack-plugin%2Fdownload%2Fcompression-webpack-plugin-7.1.2.tgz#f9a1ba84d4879693e29726f6884b382940876597"
-  integrity sha1-+aG6hNSHlpPilyb2iEs4KUCHZZc=
+compression-webpack-plugin@8.0.0:
+  version "8.0.0"
+  resolved "https://registry.nlark.com/compression-webpack-plugin/download/compression-webpack-plugin-8.0.0.tgz?cache=0&sync_timestamp=1621607041613&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fcompression-webpack-plugin%2Fdownload%2Fcompression-webpack-plugin-8.0.0.tgz#cea047f9e047020cb267a297898d8d05e9aa29a7"
+  integrity sha1-zqBH+eBHAgyyZ6KXiY2NBemqKac=
   dependencies:
     schema-utils "^3.0.0"
     serialize-javascript "^5.0.1"
@@ -2758,13 +2773,13 @@ cookie@0.4.0:
   resolved "https://registry.npm.taobao.org/cookie/download/cookie-0.4.0.tgz#beb437e7022b3b6d49019d088665303ebe9c14ba"
   integrity sha1-vrQ35wIrO21JAZ0IhmUwPr6cFLo=
 
-copy-webpack-plugin@8.1.1:
-  version "8.1.1"
-  resolved "https://registry.nlark.com/copy-webpack-plugin/download/copy-webpack-plugin-8.1.1.tgz?cache=0&sync_timestamp=1621607204015&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fcopy-webpack-plugin%2Fdownload%2Fcopy-webpack-plugin-8.1.1.tgz#3f697e162764925c2f0d235f380676125508fd26"
-  integrity sha1-P2l+FidkklwvDSNfOAZ2ElUI/SY=
+copy-webpack-plugin@9.0.0:
+  version "9.0.0"
+  resolved "https://registry.nlark.com/copy-webpack-plugin/download/copy-webpack-plugin-9.0.0.tgz?cache=0&sync_timestamp=1621607204015&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fcopy-webpack-plugin%2Fdownload%2Fcopy-webpack-plugin-9.0.0.tgz#2bf592785d2fcdde9342dfed3676490fe0aa7ce8"
+  integrity sha1-K/WSeF0vzd6TQt/tNnZJD+CqfOg=
   dependencies:
     fast-glob "^3.2.5"
-    glob-parent "^5.1.1"
+    glob-parent "^6.0.0"
     globby "^11.0.3"
     normalize-path "^3.0.0"
     p-limit "^3.1.0"
@@ -2865,15 +2880,14 @@ css-declaration-sorter@^6.0.3:
   dependencies:
     timsort "^0.3.0"
 
-css-loader@5.2.4:
-  version "5.2.4"
-  resolved "https://registry.nlark.com/css-loader/download/css-loader-5.2.4.tgz#e985dcbce339812cb6104ef3670f08f9893a1536"
-  integrity sha1-6YXcvOM5gSy2EE7zZw8I+Yk6FTY=
+css-loader@5.2.6:
+  version "5.2.6"
+  resolved "https://registry.nlark.com/css-loader/download/css-loader-5.2.6.tgz#c3c82ab77fea1f360e587d871a6811f4450cc8d1"
+  integrity sha1-w8gqt3/qHzYOWH2HGmgR9EUMyNE=
   dependencies:
-    camelcase "^6.2.0"
     icss-utils "^5.1.0"
     loader-utils "^2.0.0"
-    postcss "^8.2.10"
+    postcss "^8.2.15"
     postcss-modules-extract-imports "^3.0.0"
     postcss-modules-local-by-default "^4.0.0"
     postcss-modules-scope "^3.0.0"
@@ -2882,10 +2896,10 @@ css-loader@5.2.4:
     schema-utils "^3.0.0"
     semver "^7.3.5"
 
-css-minimizer-webpack-plugin@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.nlark.com/css-minimizer-webpack-plugin/download/css-minimizer-webpack-plugin-2.0.0.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fcss-minimizer-webpack-plugin%2Fdownload%2Fcss-minimizer-webpack-plugin-2.0.0.tgz#3c42f6624ed4cf4780dd963e23ee649e5a25c1a8"
-  integrity sha1-PEL2Yk7Uz0eA3ZY+I+5knlolwag=
+css-minimizer-webpack-plugin@3.0.0:
+  version "3.0.0"
+  resolved "https://registry.nlark.com/css-minimizer-webpack-plugin/download/css-minimizer-webpack-plugin-3.0.0.tgz#5b1edbffe1a3e6450d8cb53fb4f4c5013b7af313"
+  integrity sha1-Wx7b/+Gj5kUNjLU/tPTFATt68xM=
   dependencies:
     cssnano "^5.0.0"
     jest-worker "^26.3.0"
@@ -2939,7 +2953,7 @@ cssesc@^3.0.0:
   resolved "https://registry.nlark.com/cssesc/download/cssesc-3.0.0.tgz#37741919903b868565e1c09ea747445cd18983ee"
   integrity sha1-N3QZGZA7hoVl4cCep0dEXNGJg+4=
 
-cssnano-preset-default@^5.0.1, cssnano-preset-default@^5.1.1:
+cssnano-preset-default@^5.1.1:
   version "5.1.1"
   resolved "https://registry.nlark.com/cssnano-preset-default/download/cssnano-preset-default-5.1.1.tgz#5cd783caed942cc94159aeb10583af4691445b8c"
   integrity sha1-XNeDyu2ULMlBWa6xBYOvRpFEW4w=
@@ -2979,18 +2993,9 @@ cssnano-utils@^2.0.1:
   resolved "https://registry.nlark.com/cssnano-utils/download/cssnano-utils-2.0.1.tgz#8660aa2b37ed869d2e2f22918196a9a8b6498ce2"
   integrity sha1-hmCqKzfthp0uLyKRgZapqLZJjOI=
 
-cssnano@5.0.2:
-  version "5.0.2"
-  resolved "https://registry.nlark.com/cssnano/download/cssnano-5.0.2.tgz?cache=0&sync_timestamp=1621619863636&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fcssnano%2Fdownload%2Fcssnano-5.0.2.tgz#3f6de4fd5ecb7b5fb636c1a606de5f38cd241493"
-  integrity sha1-P23k/V7Le1+2NsGmBt5fOM0kFJM=
-  dependencies:
-    cosmiconfig "^7.0.0"
-    cssnano-preset-default "^5.0.1"
-    is-resolvable "^1.1.0"
-
-cssnano@^5.0.0:
+cssnano@5.0.4, cssnano@^5.0.0:
   version "5.0.4"
-  resolved "https://registry.nlark.com/cssnano/download/cssnano-5.0.4.tgz?cache=0&sync_timestamp=1621619863636&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fcssnano%2Fdownload%2Fcssnano-5.0.4.tgz#5ca90729c94c71c4bc3d45abb543be10740bf381"
+  resolved "https://registry.nlark.com/cssnano/download/cssnano-5.0.4.tgz#5ca90729c94c71c4bc3d45abb543be10740bf381"
   integrity sha1-XKkHKclMccS8PUWrtUO+EHQL84E=
   dependencies:
     cosmiconfig "^7.0.0"
@@ -3087,6 +3092,13 @@ default-gateway@^6.0.0:
   integrity sha1-gZSUyIgFO9t0PtvzQ9bN9/KUOnE=
   dependencies:
     execa "^5.0.0"
+
+defaults@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.nlark.com/defaults/download/defaults-1.0.3.tgz#c656051e9817d9ff08ed881477f3fe4019f3ef7d"
+  integrity sha1-xlYFHpgX2f8I7YgUd/P+QBnz730=
+  dependencies:
+    clone "^1.0.2"
 
 defer-to-connect@^1.0.1:
   version "1.1.3"
@@ -4186,10 +4198,17 @@ get-stream@^6.0.0:
   resolved "https://registry.npm.taobao.org/get-stream/download/get-stream-6.0.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fget-stream%2Fdownload%2Fget-stream-6.0.1.tgz#a262d8eef67aced57c2852ad6167526a43cbf7b7"
   integrity sha1-omLY7vZ6ztV8KFKtYWdSakPL97c=
 
-glob-parent@^5.0.0, glob-parent@^5.1.0, glob-parent@^5.1.1, glob-parent@~5.1.0:
+glob-parent@^5.0.0, glob-parent@^5.1.0, glob-parent@~5.1.0:
   version "5.1.2"
   resolved "https://registry.nlark.com/glob-parent/download/glob-parent-5.1.2.tgz#869832c58034fe68a4093c17dc15e8340d8401c4"
   integrity sha1-hpgyxYA0/mikCTwX3BXoNA2EAcQ=
+  dependencies:
+    is-glob "^4.0.1"
+
+glob-parent@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.nlark.com/glob-parent/download/glob-parent-6.0.0.tgz#f851b59b388e788f3a44d63fab50382b2859c33c"
+  integrity sha1-+FG1mziOeI86RNY/q1A4KyhZwzw=
   dependencies:
     is-glob "^4.0.1"
 
@@ -4632,21 +4651,22 @@ ini@^1.3.4, ini@~1.3.0:
   resolved "https://registry.nlark.com/ini/download/ini-1.3.8.tgz#a29da425b48806f34767a4efce397269af28432c"
   integrity sha1-op2kJbSIBvNHZ6Tvzjlyaa8oQyw=
 
-inquirer@7.3.3:
-  version "7.3.3"
-  resolved "https://registry.npm.taobao.org/inquirer/download/inquirer-7.3.3.tgz#04d176b2af04afc157a83fd7c100e98ee0aad003"
-  integrity sha1-BNF2sq8Er8FXqD/XwQDpjuCq0AM=
+inquirer@8.1.0:
+  version "8.1.0"
+  resolved "https://registry.nlark.com/inquirer/download/inquirer-8.1.0.tgz?cache=0&sync_timestamp=1621628995749&other_urls=https%3A%2F%2Fregistry.nlark.com%2Finquirer%2Fdownload%2Finquirer-8.1.0.tgz#68ce5ce5376cf0e89765c993d8b7c1e62e184d69"
+  integrity sha1-aM5c5Tds8OiXZcmT2LfB5i4YTWk=
   dependencies:
     ansi-escapes "^4.2.1"
-    chalk "^4.1.0"
+    chalk "^4.1.1"
     cli-cursor "^3.1.0"
     cli-width "^3.0.0"
     external-editor "^3.0.3"
     figures "^3.0.0"
-    lodash "^4.17.19"
+    lodash "^4.17.21"
     mute-stream "0.0.8"
+    ora "^5.3.0"
     run-async "^2.4.0"
-    rxjs "^6.6.0"
+    rxjs "^6.6.6"
     string-width "^4.1.0"
     strip-ansi "^6.0.0"
     through "^2.3.6"
@@ -4788,6 +4808,11 @@ is-installed-globally@^0.4.0:
     global-dirs "^3.0.0"
     is-path-inside "^3.0.2"
 
+is-interactive@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.nlark.com/is-interactive/download/is-interactive-1.0.0.tgz#cea6e6ae5c870a7b0a0004070b7b587e0252912e"
+  integrity sha1-zqbmrlyHCnsKAAQHC3tYfgJSkS4=
+
 is-ip@^3.1.0:
   version "3.1.0"
   resolved "https://registry.npm.taobao.org/is-ip/download/is-ip-3.1.0.tgz#2ae5ddfafaf05cb8008a62093cf29734f657c5d8"
@@ -4876,6 +4901,11 @@ is-typedarray@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npm.taobao.org/is-typedarray/download/is-typedarray-1.0.0.tgz#e479c80858df0c1b11ddda6940f96011fcda4a9a"
   integrity sha1-5HnICFjfDBsR3dppQPlgEfzaSpo=
+
+is-unicode-supported@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.npm.taobao.org/is-unicode-supported/download/is-unicode-supported-0.1.0.tgz#3f26c76a809593b52bfa2ecb5710ed2779b522a7"
+  integrity sha1-PybHaoCVk7Ur+i7LVxDtJ3m1Iqc=
 
 is-wsl@^2.1.1:
   version "2.2.0"
@@ -5268,10 +5298,18 @@ lodash.uniq@^4.5.0:
   resolved "https://registry.npm.taobao.org/lodash.uniq/download/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
 
-lodash@^4.0.1, lodash@^4.17.10, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.21:
+lodash@^4.0.1, lodash@^4.17.10, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.20, lodash@^4.17.21:
   version "4.17.21"
   resolved "https://registry.nlark.com/lodash/download/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha1-Z5WRxWTDv/quhFTPCz3zcMPWkRw=
+
+log-symbols@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.nlark.com/log-symbols/download/log-symbols-4.1.0.tgz#3fbdbb95b4683ac9fc785111e792e558d4abd503"
+  integrity sha1-P727lbRoOsn8eFER55LlWNSr1QM=
+  dependencies:
+    chalk "^4.1.0"
+    is-unicode-supported "^0.1.0"
 
 log-update@4.0.0:
   version "4.0.0"
@@ -5781,6 +5819,21 @@ optionator@^0.9.1:
     type-check "^0.4.0"
     word-wrap "^1.2.3"
 
+ora@^5.3.0:
+  version "5.4.0"
+  resolved "https://registry.npm.taobao.org/ora/download/ora-5.4.0.tgz#42eda4855835b9cd14d33864c97a3c95a3f56bf4"
+  integrity sha1-Qu2khVg1uc0U0zhkyXo8laP1a/Q=
+  dependencies:
+    bl "^4.1.0"
+    chalk "^4.1.0"
+    cli-cursor "^3.1.0"
+    cli-spinners "^2.5.0"
+    is-interactive "^1.0.0"
+    is-unicode-supported "^0.1.0"
+    log-symbols "^4.1.0"
+    strip-ansi "^6.0.0"
+    wcwidth "^1.0.1"
+
 os-tmpdir@~1.0.2:
   version "1.0.2"
   resolved "https://registry.nlark.com/os-tmpdir/download/os-tmpdir-1.0.2.tgz#bbe67406c79aa85c5cfec766fe5734555dfa1274"
@@ -6116,10 +6169,10 @@ postcss-discard-overridden@^5.0.1:
   resolved "https://registry.nlark.com/postcss-discard-overridden/download/postcss-discard-overridden-5.0.1.tgz#454b41f707300b98109a75005ca4ab0ff2743ac6"
   integrity sha1-RUtB9wcwC5gQmnUAXKSrD/J0OsY=
 
-postcss-loader@5.2.0:
-  version "5.2.0"
-  resolved "https://registry.nlark.com/postcss-loader/download/postcss-loader-5.2.0.tgz#ccd6668a778902d653602289c765a8bc481986dc"
-  integrity sha1-zNZmineJAtZTYCKJx2WovEgZhtw=
+postcss-loader@5.3.0:
+  version "5.3.0"
+  resolved "https://registry.nlark.com/postcss-loader/download/postcss-loader-5.3.0.tgz#1657f869e48d4fdb018a40771c235e499ee26244"
+  integrity sha1-Flf4aeSNT9sBikB3HCNeSZ7iYkQ=
   dependencies:
     cosmiconfig "^7.0.0"
     klona "^2.0.4"
@@ -6313,12 +6366,12 @@ postcss-reduce-transforms@^5.0.1:
     cssnano-utils "^2.0.1"
     postcss-value-parser "^4.1.0"
 
-postcss-rtlcss@3.3.1:
-  version "3.3.1"
-  resolved "https://registry.nlark.com/postcss-rtlcss/download/postcss-rtlcss-3.3.1.tgz#5cb4a844267d6e217c24c1bbe8bb4491bcb958fe"
-  integrity sha1-XLSoRCZ9biF8JMG76LtEkby5WP4=
+postcss-rtlcss@3.3.4:
+  version "3.3.4"
+  resolved "https://registry.nlark.com/postcss-rtlcss/download/postcss-rtlcss-3.3.4.tgz#561548366562209ee6d40e6d6224e6dc1650b478"
+  integrity sha1-VhVINmViIJ7m1A5tYiTm3BZQtHg=
   dependencies:
-    rtlcss "^3.1.2"
+    rtlcss "^3.2.0"
 
 postcss-selector-parser@^6.0.2, postcss-selector-parser@^6.0.4, postcss-selector-parser@^6.0.5:
   version "6.0.6"
@@ -6350,7 +6403,7 @@ postcss-value-parser@^4.0.2, postcss-value-parser@^4.1.0:
   resolved "https://registry.npm.taobao.org/postcss-value-parser/download/postcss-value-parser-4.1.0.tgz#443f6a20ced6481a2bda4fa8532a6e55d789a2cb"
   integrity sha1-RD9qIM7WSBor2k+oUypuVdeJoss=
 
-postcss@^8.1.10, postcss@^8.2.10, postcss@^8.2.4, postcss@^8.2.9:
+postcss@^8.1.10, postcss@^8.2.10, postcss@^8.2.15, postcss@^8.2.4, postcss@^8.2.9:
   version "8.3.0"
   resolved "https://registry.nlark.com/postcss/download/postcss-8.3.0.tgz#b1a713f6172ca427e3f05ef1303de8b65683325f"
   integrity sha1-sacT9hcspCfj8F7xMD3otlaDMl8=
@@ -6460,10 +6513,10 @@ qs@6.7.0:
   resolved "https://registry.npm.taobao.org/qs/download/qs-6.7.0.tgz?cache=0&sync_timestamp=1616385328325&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fqs%2Fdownload%2Fqs-6.7.0.tgz#41dc1a015e3d581f1621776be31afb2876a9b1bc"
   integrity sha1-QdwaAV49WB8WIXdr4xr7KHapsbw=
 
-quasar@^2.0.0-beta.17:
-  version "2.0.0-beta.17"
-  resolved "https://registry.nlark.com/quasar/download/quasar-2.0.0-beta.17.tgz#4652965f4144b8cda4a4d4c9e40ca030b9f2a717"
-  integrity sha1-RlKWX0FEuM2kpNTJ5AygMLnypxc=
+quasar@^2.0.0-beta.19:
+  version "2.0.0-beta.19"
+  resolved "https://registry.nlark.com/quasar/download/quasar-2.0.0-beta.19.tgz#2de898ce3fd99398ea9964296abb070a56742cb9"
+  integrity sha1-LeiYzj/Zk5jqmWQparsHClZ0LLk=
 
 querystring@0.2.0:
   version "0.2.0"
@@ -6766,10 +6819,10 @@ roarr@^2.15.3:
     semver-compare "^1.0.0"
     sprintf-js "^1.1.2"
 
-rtlcss@^3.1.2:
-  version "3.1.2"
-  resolved "https://registry.npm.taobao.org/rtlcss/download/rtlcss-3.1.2.tgz#4800d3d03525791a720f676a8ad2c6acf8efdfb2"
-  integrity sha1-SADT0DUleRpyD2dqitLGrPjv37I=
+rtlcss@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.nlark.com/rtlcss/download/rtlcss-3.2.0.tgz#2139734ac45302891182f23f13448c51c07fccaf"
+  integrity sha1-ITlzSsRTAokRgvI/E0SMUcB/zK8=
   dependencies:
     chalk "^4.1.0"
     find-up "^5.0.0"
@@ -6789,7 +6842,7 @@ run-parallel@^1.1.9:
   dependencies:
     queue-microtask "^1.2.2"
 
-rxjs@^6.6.0:
+rxjs@^6.6.6:
   version "6.6.7"
   resolved "https://registry.nlark.com/rxjs/download/rxjs-6.6.7.tgz?cache=0&sync_timestamp=1621619391474&other_urls=https%3A%2F%2Fregistry.nlark.com%2Frxjs%2Fdownload%2Frxjs-6.6.7.tgz#90ac018acabf491bf65044235d5863c4dab804c9"
   integrity sha1-kKwBisq/SRv2UEQjXVhjxNq4BMk=
@@ -6818,10 +6871,10 @@ sanitize-filename@^1.6.3:
   dependencies:
     truncate-utf8-bytes "^1.0.0"
 
-sass-loader@11.0.1:
-  version "11.0.1"
-  resolved "https://registry.nlark.com/sass-loader/download/sass-loader-11.0.1.tgz?cache=0&sync_timestamp=1620926321113&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fsass-loader%2Fdownload%2Fsass-loader-11.0.1.tgz#8672f896593466573b904f47693e0695368e38c9"
-  integrity sha1-hnL4llk0Zlc7kE9HaT4GlTaOOMk=
+sass-loader@11.1.1:
+  version "11.1.1"
+  resolved "https://registry.nlark.com/sass-loader/download/sass-loader-11.1.1.tgz?cache=0&sync_timestamp=1622562268554&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fsass-loader%2Fdownload%2Fsass-loader-11.1.1.tgz#0db441bbbe197b2af96125bebb7f4be6476b13a7"
+  integrity sha1-DbRBu74Zeyr5YSW+u39L5kdrE6c=
   dependencies:
     klona "^2.0.4"
     neo-async "^2.6.2"
@@ -7323,19 +7376,7 @@ svgo@^2.3.0:
     csso "^4.2.0"
     stable "^0.1.8"
 
-table@6.7.0:
-  version "6.7.0"
-  resolved "https://registry.nlark.com/table/download/table-6.7.0.tgz?cache=0&sync_timestamp=1620957183690&other_urls=https%3A%2F%2Fregistry.nlark.com%2Ftable%2Fdownload%2Ftable-6.7.0.tgz#26274751f0ee099c547f6cb91d3eff0d61d155b2"
-  integrity sha1-JidHUfDuCZxUf2y5HT7/DWHRVbI=
-  dependencies:
-    ajv "^8.0.1"
-    lodash.clonedeep "^4.5.0"
-    lodash.truncate "^4.4.2"
-    slice-ansi "^4.0.0"
-    string-width "^4.2.0"
-    strip-ansi "^6.0.0"
-
-table@^6.0.4:
+table@6.7.1, table@^6.0.4:
   version "6.7.1"
   resolved "https://registry.nlark.com/table/download/table-6.7.1.tgz?cache=0&sync_timestamp=1620957183690&other_urls=https%3A%2F%2Fregistry.nlark.com%2Ftable%2Fdownload%2Ftable-6.7.1.tgz#ee05592b7143831a8c94f3cee6aae4c1ccef33e2"
   integrity sha1-7gVZK3FDgxqMlPPO5qrkwczvM+I=
@@ -7376,19 +7417,7 @@ temp-file@^3.3.7:
     async-exit-hook "^2.0.1"
     fs-extra "^10.0.0"
 
-terser-webpack-plugin@5.1.1:
-  version "5.1.1"
-  resolved "https://registry.nlark.com/terser-webpack-plugin/download/terser-webpack-plugin-5.1.1.tgz?cache=0&sync_timestamp=1620830698693&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fterser-webpack-plugin%2Fdownload%2Fterser-webpack-plugin-5.1.1.tgz#7effadee06f7ecfa093dbbd3e9ab23f5f3ed8673"
-  integrity sha1-fv+t7gb37PoJPbvT6asj9fPthnM=
-  dependencies:
-    jest-worker "^26.6.2"
-    p-limit "^3.1.0"
-    schema-utils "^3.0.0"
-    serialize-javascript "^5.0.1"
-    source-map "^0.6.1"
-    terser "^5.5.1"
-
-terser-webpack-plugin@^5.1.1:
+terser-webpack-plugin@5.1.2, terser-webpack-plugin@^5.1.1:
   version "5.1.2"
   resolved "https://registry.nlark.com/terser-webpack-plugin/download/terser-webpack-plugin-5.1.2.tgz?cache=0&sync_timestamp=1620830698693&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fterser-webpack-plugin%2Fdownload%2Fterser-webpack-plugin-5.1.2.tgz#51d295eb7cc56785a67a372575fdc46e42d5c20c"
   integrity sha1-UdKV63zFZ4Wmejcldf3EbkLVwgw=
@@ -7409,7 +7438,7 @@ terser@^4.6.3:
     source-map "~0.6.1"
     source-map-support "~0.5.12"
 
-terser@^5.3.8, terser@^5.5.1, terser@^5.7.0:
+terser@^5.3.8, terser@^5.7.0:
   version "5.7.0"
   resolved "https://registry.nlark.com/terser/download/terser-5.7.0.tgz#a761eeec206bc87b605ab13029876ead938ae693"
   integrity sha1-p2Hu7CBryHtgWrEwKYdurZOK5pM=
@@ -7836,10 +7865,12 @@ vue@3.0.11:
     "@vue/runtime-dom" "3.0.11"
     "@vue/shared" "3.0.11"
 
-vuex@4.0.0:
-  version "4.0.0"
-  resolved "https://registry.npm.taobao.org/vuex/download/vuex-4.0.0.tgz#ac877aa76a9c45368c979471e461b520d38e6cf5"
-  integrity sha1-rId6p2qcRTaMl5Rx5GG1INOObPU=
+vuex@4.0.1:
+  version "4.0.1"
+  resolved "https://registry.nlark.com/vuex/download/vuex-4.0.1.tgz#e83c541d6f31173969efabb2c5d1c465b682887e"
+  integrity sha1-6DxUHW8xFzlp76uyxdHEZbaCiH4=
+  dependencies:
+    "@vue/devtools-api" "^6.0.0-beta.11"
 
 watchpack@^2.0.0:
   version "2.2.0"
@@ -7856,10 +7887,17 @@ wbuf@^1.1.0, wbuf@^1.7.3:
   dependencies:
     minimalistic-assert "^1.0.0"
 
-webpack-bundle-analyzer@4.4.1:
-  version "4.4.1"
-  resolved "https://registry.nlark.com/webpack-bundle-analyzer/download/webpack-bundle-analyzer-4.4.1.tgz?cache=0&sync_timestamp=1621259099265&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fwebpack-bundle-analyzer%2Fdownload%2Fwebpack-bundle-analyzer-4.4.1.tgz#c71fb2eaffc10a4754d7303b224adb2342069da1"
-  integrity sha1-xx+y6v/BCkdU1zA7IkrbI0IGnaE=
+wcwidth@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.nlark.com/wcwidth/download/wcwidth-1.0.1.tgz#f0b0dcf915bc5ff1528afadb2c0e17b532da2fe8"
+  integrity sha1-8LDc+RW8X/FSivrbLA4XtTLaL+g=
+  dependencies:
+    defaults "^1.0.3"
+
+webpack-bundle-analyzer@4.4.2:
+  version "4.4.2"
+  resolved "https://registry.nlark.com/webpack-bundle-analyzer/download/webpack-bundle-analyzer-4.4.2.tgz?cache=0&sync_timestamp=1621259099265&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fwebpack-bundle-analyzer%2Fdownload%2Fwebpack-bundle-analyzer-4.4.2.tgz#39898cf6200178240910d629705f0f3493f7d666"
+  integrity sha1-OYmM9iABeCQJENYpcF8PNJP31mY=
   dependencies:
     acorn "^8.0.4"
     acorn-walk "^8.0.0"
