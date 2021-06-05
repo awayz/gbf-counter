@@ -2,6 +2,7 @@ import { app, BrowserWindow, nativeTheme, ipcMain } from 'electron';
 import { defaultGbfData, defaultDetailData, GBF_JSON_KEY, DETAIL_JSON_KEY } from './data/constants.js';
 import { getByKeyOrDefault } from './utils/dbUtil.js';
 import { removeClosest, findByRaidId } from './utils/gbfUtil.js';
+import { version } from '../package.json';
 
 const dayjs = require('dayjs');
 const fs = require('fs');
@@ -18,8 +19,8 @@ const STORE_PATH = app.getPath('userData');
 storage.setDataPath(STORE_PATH);
 
 let mainWindow;
-let mainWidth = 900;
-let mainHeight = 550;
+const mainWidth = 900;
+const mainHeight = 550;
 
 function createWindow() {
   mainWindow = new BrowserWindow({
@@ -67,6 +68,11 @@ app.on('activate', () => {
     createWindow();
   }
 });
+
+ipcMain.handle('version', async () => {
+  return version;
+});
+
 
 ipcMain.on('minimize', () => {
   mainWindow.minimize();

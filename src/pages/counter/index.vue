@@ -39,13 +39,16 @@ export default defineComponent({
     const route = useRoute();
     const raidId: string = route.params.id as string;
 
+    // 对应 raid 的所有掉落物品的 id
     const dropItems: string[] = DropItemMap[raidId];
+    // 对应 raid 的所有掉落物品的详细信息
     const drops: DropItemI[] = [];
     for (let i = 0; i < dropItems.length; i += 1) {
       const dropItem: string = dropItems[i];
       drops.push(DropItems[dropItem]);
     }
 
+    // 每个掉落物品的计数
     const itemCount = reactive<Record<string, number>>({});
     onMounted(async () => {
       const t = (await (window as any).api.count(raidId)) as Record<string, number>;
@@ -56,7 +59,8 @@ export default defineComponent({
     watch(itemCount, (cur: Record<string, number>) => {
       let t = 0;
       for (let i = 0; i < drops.length; i += 1) {
-        t += cur[drops[i].id];
+        // 新添加掉落之后，老的记录里可能没有这个掉落信息，所以加了个判断
+        t += cur[drops[i].id] ?? 0;
       }
       total.value = t;
     });

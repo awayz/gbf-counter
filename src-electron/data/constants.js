@@ -3,7 +3,8 @@ export const defaultGbfData = {
     "ffj": 0,
     "red_ring": 0,
     "black_ring": 0,
-    "white_ring": 0
+    "white_ring": 0,
+    "empty": 0,
   },
   "akasha": {
     "ffj": 0,

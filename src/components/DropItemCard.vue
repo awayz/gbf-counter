@@ -1,7 +1,7 @@
 <template>
   <q-card class="drop-card">
-    <q-btn round @click="add">
-      <q-avatar size="42px">
+    <q-btn @click="add" size="xs" dense flat>
+      <q-avatar square size="46px">
         <img :src="img" />
       </q-avatar>
     </q-btn>
@@ -91,7 +91,7 @@ export default defineComponent({
 .drop-card {
   width: 100%;
   height: 60px;
-  padding: 5px;
+  padding: 10px;
   align-items: center;
   justify-content: center;
   display: flex;
@@ -100,7 +100,7 @@ export default defineComponent({
   .drop-counter {
     display: flex;
     justify-content: center;
-    width: 90px;
+    width: 100px;
   }
 }
 </style>

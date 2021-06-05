@@ -64,10 +64,15 @@ export const DropItems: DropItemsI = {
     name: '加蛋',
     imgPath: 'statics/mirage_munition.png',
   },
+  empty: {
+    id: 'empty',
+    name: '我蓝箱呢',
+    imgPath: 'statics/empty.jpg',
+  },
 };
 
 export const DropItemMap: DropMapI = {
-  proto_bahamut: ['ffj', 'red_ring', 'black_ring', 'white_ring'],
+  proto_bahamut: ['ffj', 'red_ring', 'black_ring', 'white_ring', 'empty'],
   akasha: [
     'ffj',
     'red_ring',

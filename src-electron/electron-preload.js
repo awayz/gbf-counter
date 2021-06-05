@@ -12,6 +12,9 @@
 const { contextBridge, ipcRenderer } = require('electron');
 
 contextBridge.exposeInMainWorld('api', {
+  version: async () => {
+    return await ipcRenderer.invoke('version');
+  },
   startCount: (height) => {
     ipcRenderer.send('start-count', height);
   },

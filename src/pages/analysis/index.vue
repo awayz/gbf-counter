@@ -172,9 +172,9 @@ const updateSummaryPie = (data: ItemCount) => {
       trigger: 'item',
     },
     legend: {
-      orient: 'horizontal',
+      orient: 'vertical',
       left: 'left',
-      top: 'bottom',
+      top: 'center',
     },
     series: [
       {
@@ -423,7 +423,7 @@ export default defineComponent({
       color: #ffe474;
       position: relative;
       top: 136px;
-      left: 80px;
+      left: 65px;
       font-size: 80px;
       margin: 0 5px 0 0;
     }
@@ -432,7 +432,7 @@ export default defineComponent({
       color: #ffe474;
       position: relative;
       top: 130px;
-      left: 80px;
+      left: 65px;
       font-size: 30px;
     }
   }

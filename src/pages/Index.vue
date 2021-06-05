@@ -11,12 +11,13 @@
           :path="raid.route"
         />
       </div>
+      <q-badge outline color="primary" class="version">{{ `version ${version}` }}</q-badge>
     </div>
   </q-page>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref, onMounted } from 'vue';
 import RaidCard from 'src/components/RaidCard.vue';
 import { RaidList } from 'src/constants/drop';
 
@@ -27,8 +28,13 @@ export default defineComponent({
   },
 
   setup() {
+    const version = ref('');
+    onMounted(async () => {
+      version.value = (await (window as any).api.version()) as string;
+    });
     return {
       raids: RaidList,
+      version,
     };
   },
 });
@@ -49,5 +55,11 @@ export default defineComponent({
 .raid-card-row {
   margin-top: 50px;
   padding: 0 20px 0 0;
+}
+
+.version {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
 }
 </style>
