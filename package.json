@@ -1,6 +1,6 @@
 {
   "name": "gbf-counter",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "GBF counter",
   "productName": "gbf-counter",
   "author": "awayz",
@@ -12,20 +12,23 @@
   "dependencies": {
     "@quasar/extras": "^1.10.6",
     "axios": "^0.21.1",
-    "core-js": "^3.6.5",
     "dayjs": "^1.10.4",
     "echarts": "^5.1.1",
     "electron-json-storage": "^4.5.0",
-    "quasar": "^2.0.0-beta.19",
+    "quasar": "^2.0.0-rc.1",
+    "vue": "^3.0.11",
     "vue-digit-animation": "^0.2.1",
-    "vue-i18n": "^9.0.0-beta.0"
+    "vue-i18n": "^9.0.0-beta.0",
+    "vuex": "^4.0.1"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.13.14",
-    "@quasar/app": "^3.0.0-beta.28",
+    "@babel/core" : "^7.11.0",
+    "@quasar/app": "^3.0.0-rc.1",
     "@types/node": "^10.17.15",
     "@typescript-eslint/eslint-plugin": "^4.16.1",
     "@typescript-eslint/parser": "^4.16.1",
+    "core-js": "^3.6.5",
     "electron": "^13.1.0",
     "electron-builder": "^22.4.0",
     "eslint": "^7.14.0",

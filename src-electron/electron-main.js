@@ -2,7 +2,7 @@ import { app, BrowserWindow, nativeTheme, ipcMain } from 'electron';
 import { defaultGbfData, defaultDetailData, GBF_JSON_KEY, DETAIL_JSON_KEY } from './data/constants.js';
 import { getByKeyOrDefault } from './utils/dbUtil.js';
 import { removeClosest, findByRaidId } from './utils/gbfUtil.js';
-import { version } from '../package.json';
+import packageInfo from '../package.json';
 
 const dayjs = require('dayjs');
 const fs = require('fs');
@@ -70,7 +70,7 @@ app.on('activate', () => {
 });
 
 ipcMain.handle('version', async () => {
-  return version;
+  return packageInfo.version;
 });
 
 
@@ -104,7 +104,7 @@ ipcMain.on('end-count', () => {
 ipcMain.handle('count', async (_, raidId) => {
   try {
     let data = await getByKeyOrDefault(storage, GBF_JSON_KEY, defaultGbfData);
-    return data[raidId];
+    return data[raidId] || defaultGbfData[raidId];
   } catch(e) {
     console.log(e);
   }
@@ -122,12 +122,28 @@ ipcMain.handle('countAll', async (_, __) => {
 ipcMain.handle('save', async (_, { raidId, itemId, num }) => {
   try {
     let data = await getByKeyOrDefault(storage, GBF_JSON_KEY, defaultGbfData);
+    if (!data[raidId]) {
+      data[raidId] = {}
+    }
     data[raidId][itemId] = num;
     storage.set(GBF_JSON_KEY, data);
     return true;
   } catch(e) {
     console.log(e);
   }
+  return false;
+});
+
+ipcMain.handle('saveRaid', async (_, {raidId, raidData}) => {
+  try {
+    let data = await getByKeyOrDefault(storage, GBF_JSON_KEY, defaultGbfData);
+    data[raidId] = raidData;
+    storage.set(GBF_JSON_KEY, data);
+    return true;
+  } catch(e) {
+    console.log(e)
+  }
+  return false;
 });
 
 ipcMain.handle('increment', async (_, { raidId, itemId, itemName }) => {

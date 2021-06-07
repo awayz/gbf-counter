@@ -36,10 +36,13 @@ contextBridge.exposeInMainWorld('api', {
   save: async ({ raidId, itemId, num }) => {
     return await ipcRenderer.invoke('save', { raidId, itemId, num });
   },
-  increment: async ({ raidId, itemId, itemName}) => {
+  saveRaid: async ({ raidId, raidData }) => {
+    return await ipcRenderer.invoke('saveRaid', { raidId, raidData })
+  },
+  increment: async ({ raidId, itemId, itemName }) => {
     return await ipcRenderer.invoke('increment', { raidId, itemId, itemName});
   },
-  decrement: async ({ raidId, itemId}) => {
+  decrement: async ({ raidId, itemId }) => {
     return await ipcRenderer.invoke('decrement', { raidId, itemId });
   },
   listByRaidId: async (raidId) => {

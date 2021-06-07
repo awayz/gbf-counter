@@ -64,6 +64,11 @@ export const DropItems: DropItemsI = {
     name: '加蛋',
     imgPath: 'statics/mirage_munition.png',
   },
+  verdant_azurite: {
+    id: 'verdant_azurite',
+    name: '海胆',
+    imgPath: 'statics/verdant_azurite.jpg',
+  },
   empty: {
     id: 'empty',
     name: '我蓝箱呢',
@@ -85,6 +90,17 @@ export const DropItemMap: DropMapI = {
     'hollow_key',
     'mirage_munition',
   ],
+  grand_order: [
+    'ffj',
+    'red_ring',
+    'black_ring',
+    'white_ring',
+    'silver_centrum',
+    'red_paper',
+    'black_paper',
+    'white_paper',
+    'verdant_azurite',
+  ],
 };
 
 export const RaidList = [
@@ -99,5 +115,11 @@ export const RaidList = [
     name: '阿卡夏',
     img_path: 'statics/akasha.png',
     route: '/counter/akasha',
+  },
+  {
+    id: 'grand_order',
+    name: '大公',
+    img_path: 'statics/grand_order.jpg',
+    route: '/counter/grand_order',
   },
 ];

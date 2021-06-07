@@ -17,6 +17,17 @@ export const defaultGbfData = {
     "white_paper": 0,
     "hollow_key": 0,
     "mirage_munition": 0
+  },
+  "grand_order": {
+    "ffj": 0,
+    "red_ring": 0,
+    "black_ring": 0,
+    "white_ring": 0,
+    "silver_centrum":0,
+    "red_paper": 0,
+    "black_paper": 0,
+    "white_paper": 0,
+    "verdant_azurite": 0,
   }
 };
 

@@ -55,7 +55,7 @@
               <div class="row">
                 <div class="col-2 text-h6">掉落分布</div>
                 <q-space />
-                <div class="col-4">
+                <div class="col-5">
                   <q-tabs v-model="selectedRaidTab" inline-label shrink stretch align="justify" class="bg-grey-1">
                     <q-tab
                       v-for="tab in raidTabs"
@@ -290,7 +290,6 @@ const updateDailyCheckIn = (year: string, raidDetails: RaidDetail[]) => {
 export default defineComponent({
   name: 'Analysis',
   setup() {
-    let summaryPieChart: any;
     const blueTreasureCount = ref(0);
     const akashaCount = ref(0);
     const protoBahamutCount = ref(0);
@@ -397,7 +396,7 @@ export default defineComponent({
 }
 .summary::before {
   content: '';
-  background: url('~assets/olb.png') right center no-repeat;
+  background: url('~assets/olb.png') 110% no-repeat;
   background-size: contain;
   position: absolute;
   width: 100%;

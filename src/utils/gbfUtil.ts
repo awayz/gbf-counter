@@ -67,10 +67,15 @@ export function getDropInfo(allRaidsItemCount: AllRaidsItemCount): DropInfoDTO {
   const AKASHA = 'akasha';
   const PROTOBAHAMUT = 'proto_bahamut';
   const FFJ = 'ffj';
+  const EMPTY = 'empty';
 
   // eslint-disable-next-line no-unused-vars
   for (const [raidId, raidItemCount] of Object.entries(allRaidsItemCount)) {
     for (const [item, c] of Object.entries(raidItemCount)) {
+      if (item === EMPTY) {
+        continue;
+      }
+
       if (Object.prototype.hasOwnProperty.call(totalItemCount, item)) {
         totalItemCount[item] += c;
       } else {
