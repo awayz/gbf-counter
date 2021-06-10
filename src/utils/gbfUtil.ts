@@ -29,6 +29,7 @@ export interface DropInfoDTO {
   blueTreasureCount: number;
   akashaTreasureCount: number;
   protoBahamutTreasureCount: number;
+  grandOrderTreasureCount: number;
   ffjCount: number;
 }
 
@@ -54,6 +55,7 @@ export function getDropInfo(allRaidsItemCount: AllRaidsItemCount): DropInfoDTO {
       totalItemCount: {},
       blueTreasureCount: 0,
       akashaTreasureCount: 0,
+      grandOrderTreasureCount: 0,
       protoBahamutTreasureCount: 0,
       ffjCount: 0,
     };
@@ -63,9 +65,11 @@ export function getDropInfo(allRaidsItemCount: AllRaidsItemCount): DropInfoDTO {
   let blueTreasure = 0;
   let akasha = 0;
   let protoBahamut = 0;
+  let grandOrder = 0;
   let ffjCount = 0;
   const AKASHA = 'akasha';
   const PROTOBAHAMUT = 'proto_bahamut';
+  const GRANDORDER = 'grand_order';
   const FFJ = 'ffj';
   const EMPTY = 'empty';
 
@@ -87,6 +91,8 @@ export function getDropInfo(allRaidsItemCount: AllRaidsItemCount): DropInfoDTO {
         akasha += c;
       } else if (raidId === PROTOBAHAMUT) {
         protoBahamut += c;
+      } else if (raidId === GRANDORDER) {
+        grandOrder += c;
       }
       if (item === FFJ) {
         ffjCount += c;
@@ -98,6 +104,7 @@ export function getDropInfo(allRaidsItemCount: AllRaidsItemCount): DropInfoDTO {
     blueTreasureCount: blueTreasure,
     akashaTreasureCount: akasha,
     protoBahamutTreasureCount: protoBahamut,
+    grandOrderTreasureCount: grandOrder,
     ffjCount,
   };
   return result;

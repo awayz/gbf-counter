@@ -27,10 +27,16 @@
                 </div>
                 <div>
                   阿卡夏
-                  <span class="num"> {{ akashaCount }} </span>
+                  <span class="num">
+                    {{ akashaCount }}
+                  </span>
                   个，大巴
                   <span class="num">
                     {{ protoBahamutCount }}
+                  </span>
+                  个，大公
+                  <span class="num">
+                    {{ grandOrderCount }}
                   </span>
                   个
                 </div>
@@ -293,6 +299,7 @@ export default defineComponent({
     const blueTreasureCount = ref(0);
     const akashaCount = ref(0);
     const protoBahamutCount = ref(0);
+    const grandOrderCount = ref(0);
     const ffjCount = ref(0);
 
     onMounted(async () => {
@@ -303,6 +310,7 @@ export default defineComponent({
       blueTreasureCount.value = dropInfoDTO.blueTreasureCount;
       akashaCount.value = dropInfoDTO.akashaTreasureCount;
       protoBahamutCount.value = dropInfoDTO.protoBahamutTreasureCount;
+      grandOrderCount.value = dropInfoDTO.grandOrderTreasureCount;
       ffjCount.value = dropInfoDTO.ffjCount;
     });
 
@@ -316,12 +324,7 @@ export default defineComponent({
       updateDailyCheckIn(currentYear, raidDetails);
     });
 
-    const raidTabs = ref([
-      {
-        name: ALL_RAIDS,
-        label: '全部',
-      },
-    ]);
+    const raidTabs = ref<Record<string, string>[]>([]);
 
     for (let i = 0; i < RaidList.length; i += 1) {
       const raid = RaidList[i];
@@ -331,11 +334,17 @@ export default defineComponent({
       });
     }
 
+    raidTabs.value.push({
+        name: ALL_RAIDS,
+        label: '全部',
+    });
+
     return {
       raidDayCount,
       blueTreasureCount,
       akashaCount,
       protoBahamutCount,
+      grandOrderCount,
       ffjCount,
       raidTabs,
       selectedRaidTab: ref(ALL_RAIDS),
