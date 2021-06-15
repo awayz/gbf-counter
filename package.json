@@ -1,6 +1,6 @@
 {
   "name": "gbf-counter",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "GBF counter",
   "productName": "gbf-counter",
   "author": "awayz",
@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.13.14",
-    "@babel/core" : "^7.11.0",
+    "@babel/core": "^7.11.0",
     "@quasar/app": "^3.0.0-rc.1",
     "@types/node": "^10.17.15",
     "@typescript-eslint/eslint-plugin": "^4.16.1",
