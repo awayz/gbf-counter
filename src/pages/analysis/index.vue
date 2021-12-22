@@ -335,8 +335,8 @@ export default defineComponent({
     }
 
     raidTabs.value.push({
-        name: ALL_RAIDS,
-        label: '全部',
+      name: ALL_RAIDS,
+      label: '全部',
     });
 
     return {

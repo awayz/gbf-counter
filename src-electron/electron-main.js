@@ -73,13 +73,16 @@ ipcMain.handle('version', async () => {
   return packageInfo.version;
 });
 
-
 ipcMain.on('minimize', () => {
   mainWindow.minimize();
 });
 
 ipcMain.on('close', () => {
   mainWindow.close();
+});
+
+ipcMain.on('changeOnTop', () => {
+  mainWindow.setAlwaysOnTop(!mainWindow.isAlwaysOnTop());
 });
 
 ipcMain.on('start-count', (_, arg) => {
@@ -105,7 +108,7 @@ ipcMain.handle('count', async (_, raidId) => {
   try {
     let data = await getByKeyOrDefault(storage, GBF_JSON_KEY, defaultGbfData);
     return data[raidId] || defaultGbfData[raidId];
-  } catch(e) {
+  } catch (e) {
     console.log(e);
   }
 });
@@ -114,7 +117,7 @@ ipcMain.handle('countAll', async (_, __) => {
   try {
     let data = await getByKeyOrDefault(storage, GBF_JSON_KEY, defaultGbfData);
     return data;
-  } catch(e) {
+  } catch (e) {
     console.log(e);
   }
 });
@@ -123,25 +126,25 @@ ipcMain.handle('save', async (_, { raidId, itemId, num }) => {
   try {
     let data = await getByKeyOrDefault(storage, GBF_JSON_KEY, defaultGbfData);
     if (!data[raidId]) {
-      data[raidId] = {}
+      data[raidId] = {};
     }
     data[raidId][itemId] = num;
     storage.set(GBF_JSON_KEY, data);
     return true;
-  } catch(e) {
+  } catch (e) {
     console.log(e);
   }
   return false;
 });
 
-ipcMain.handle('saveRaid', async (_, {raidId, raidData}) => {
+ipcMain.handle('saveRaid', async (_, { raidId, raidData }) => {
   try {
     let data = await getByKeyOrDefault(storage, GBF_JSON_KEY, defaultGbfData);
     data[raidId] = raidData;
     storage.set(GBF_JSON_KEY, data);
     return true;
-  } catch(e) {
-    console.log(e)
+  } catch (e) {
+    console.log(e);
   }
   return false;
 });
@@ -153,26 +156,27 @@ ipcMain.handle('increment', async (_, { raidId, itemId, itemName }) => {
     data.record.push({
       raidId: raidId,
       itemId: itemId,
-      itemName, itemName,
+      itemName,
+      itemName,
       num: 1,
       damage: -1,
       duration: -1,
-      time: now
+      time: now,
     });
     storage.set(DETAIL_JSON_KEY, data);
     return true;
-  } catch(e) {
+  } catch (e) {
     console.log(e);
   }
 });
 
-ipcMain.handle('decrement', async (_, { raidId, itemId } ) => {
+ipcMain.handle('decrement', async (_, { raidId, itemId }) => {
   try {
     let data = await getByKeyOrDefault(storage, DETAIL_JSON_KEY, defaultDetailData);
     let newRecord = removeClosest(data.record, raidId, itemId);
     data.record = newRecord;
     storage.set(DETAIL_JSON_KEY, data);
-  } catch(e) {
+  } catch (e) {
     console.log(e);
   }
 });
@@ -182,7 +186,7 @@ ipcMain.handle('listByRaidId', async (_, raidId) => {
     let data = await getByKeyOrDefault(storage, DETAIL_JSON_KEY, defaultDetailData);
     let dataByRaid = findByRaidId(data.record, raidId);
     return dataByRaid;
-  } catch(e) {
+  } catch (e) {
     console.log(e);
   }
 });
@@ -191,7 +195,7 @@ ipcMain.handle('list', async (_, __) => {
   try {
     let data = await getByKeyOrDefault(storage, DETAIL_JSON_KEY, defaultDetailData);
     return data.record;
-  } catch(e) {
+  } catch (e) {
     console.log(e);
   }
 });

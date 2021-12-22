@@ -7,5 +7,4 @@
 .eslintrc.js
 babel.config.js
 /src-ssr
-/src/utils/opencv.js
 /src-electron

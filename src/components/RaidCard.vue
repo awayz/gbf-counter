@@ -32,7 +32,7 @@
               outlined
               style="width: 210px"
               v-model.number="edit.itemCount[idx].count"
-              :rules="[(val) => validCount(val) || '请输入正整数']"
+              :rules="[(val:any) => validCount(val) || '请输入正整数']"
               :label="item.name"
             />
           </q-form>

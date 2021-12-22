@@ -27,6 +27,9 @@ contextBridge.exposeInMainWorld('api', {
   close: () => {
     ipcRenderer.send('close');
   },
+  changeOnTop: () => {
+    ipcRenderer.send('changeOnTop');
+  },
   count: async (raidId) => {
     return await ipcRenderer.invoke('count', raidId);
   },
@@ -37,10 +40,10 @@ contextBridge.exposeInMainWorld('api', {
     return await ipcRenderer.invoke('save', { raidId, itemId, num });
   },
   saveRaid: async ({ raidId, raidData }) => {
-    return await ipcRenderer.invoke('saveRaid', { raidId, raidData })
+    return await ipcRenderer.invoke('saveRaid', { raidId, raidData });
   },
   increment: async ({ raidId, itemId, itemName }) => {
-    return await ipcRenderer.invoke('increment', { raidId, itemId, itemName});
+    return await ipcRenderer.invoke('increment', { raidId, itemId, itemName });
   },
   decrement: async ({ raidId, itemId }) => {
     return await ipcRenderer.invoke('decrement', { raidId, itemId });
@@ -50,5 +53,5 @@ contextBridge.exposeInMainWorld('api', {
   },
   list: async () => {
     return await ipcRenderer.invoke('list');
-  }
+  },
 });
