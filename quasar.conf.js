@@ -203,6 +203,9 @@ module.exports = configure((ctx) => ({
       win: {
         target: ['zip'],
       },
+      electronDownload: {
+        mirror: 'https://npm.taobao.org/mirrors/electron/',
+      },
     },
 
     // "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain
