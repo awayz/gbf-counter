@@ -73,7 +73,6 @@ export function getDropInfo(allRaidsItemCount: AllRaidsItemCount): DropInfoDTO {
   const FFJ = 'ffj';
   const EMPTY = 'empty';
 
-  // eslint-disable-next-line no-unused-vars
   for (const [raidId, raidItemCount] of Object.entries(allRaidsItemCount)) {
     for (const [item, c] of Object.entries(raidItemCount)) {
       if (item === EMPTY) {

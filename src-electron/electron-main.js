@@ -157,7 +157,6 @@ ipcMain.handle('increment', async (_, { raidId, itemId, itemName }) => {
       raidId: raidId,
       itemId: itemId,
       itemName,
-      itemName,
       num: 1,
       damage: -1,
       duration: -1,
