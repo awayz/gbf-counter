@@ -111,7 +111,7 @@ export default defineComponent({
     },
     handleStart() {
       const dropIdxs: string[] = DropItemMap[this.id];
-      const height = dropIdxs.length * 63 + 63;
+      const height = dropIdxs.length * 63 + 93;
       (window as any).api.startCount(height);
       void this.$router.push({ path: this.path });
     },
