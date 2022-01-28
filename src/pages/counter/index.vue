@@ -22,26 +22,13 @@
       </div>
       <q-btn flat size="12px" color="primary" icon="arrow_back" @click="handle"></q-btn>
     </div>
-    <div class="switch-container">
-      <span v-for="(raid, index) in raids" :key="index">
-        <q-btn
-          flat
-          size="12px"
-          class="switch-btn"
-          v-if="raid.id !== this.raidId"
-          @click="handleSwitch(raid.id, raid.route)"
-        >
-          {{ raid.name }}
-        </q-btn>
-      </span>
-    </div>
   </q-page>
 </template>
 <script lang="ts">
 import { defineComponent, reactive, onMounted, watch, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import DropItemCard from 'src/components/DropItemCard.vue';
-import { DropItems, DropItemMap, DropItemI, RaidList } from 'src/constants/drop';
+import { DropItems, DropItemMap, DropItemI } from 'src/constants/drop';
 
 export default defineComponent({
   name: 'CounterPage',
@@ -51,6 +38,7 @@ export default defineComponent({
   setup() {
     const route = useRoute();
     const raidId: string = route.params.id as string;
+
     // 对应 raid 的所有掉落物品的 id
     const dropItems: string[] = DropItemMap[raidId];
     // 对应 raid 的所有掉落物品的详细信息
@@ -82,7 +70,6 @@ export default defineComponent({
       itemCount,
       raidId,
       total,
-      raids: RaidList,
     };
   },
 
@@ -96,12 +83,6 @@ export default defineComponent({
     },
     saveCount(value: any) {
       this.itemCount[value.itemId] = value.num as number;
-    },
-    handleSwitch(id: string, path: string) {
-      const dropIdxs: string[] = DropItemMap[id];
-      const height = dropIdxs.length * 63 + 93;
-      (window as any).api.startCount(height);
-      void this.$router.push({ path });
     },
   },
 });
@@ -128,9 +109,5 @@ export default defineComponent({
       margin-left: 7px;
     }
   }
-}
-.switch-container {
-  display: flex;
-  justify-content: space-around;
 }
 </style>
