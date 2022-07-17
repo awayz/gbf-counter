@@ -34,7 +34,10 @@
                   <span class="num">
                     {{ protoBahamutCount }}
                   </span>
-                  个，大公
+                  个
+                </div>
+                <div>
+                  大公
                   <span class="num">
                     {{ grandOrderCount }}
                   </span>
